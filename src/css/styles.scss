@@ -1,0 +1,86 @@
+$primary: #103178;
+$warning :#ffc800;
+
+@import "bootstrap";
+
+.navbar-class {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 1;
+}
+
+img {
+    width: 48px;
+}
+
+.bg-color {
+    background: #f0f2f5;
+}
+
+.item {
+    top: 43px;
+    right: 28%;
+    border-radius: 50%;
+}
+
+.heading {
+    top: 5%;
+    left: 10%;
+    color: #ffffff;
+}
+
+.out {
+    overflow: hidden;
+}
+
+.out img {
+
+    transition: ease-in-out 2s;
+}
+
+.out img:hover {
+    transform: scale(1.2);
+    transition: ease-in-out 2s;
+}
+
+.aa {
+
+    .title {
+        font-size: 50px;
+        color: #103178;
+    }
+
+    .data {
+        color: #103178;
+        font-size: 20px;
+    }
+}
+
+.icon {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.ply-btn {
+    font-size: 60px;
+    top: 42%;
+    left: 50%;
+}
+
+.data {
+    font-size: 30px;
+
+}
+
+.mail {
+    transition: ease-in-out .5s;
+}
+
+.mail:hover {
+    cursor: pointer;
+    background: #103178;
+    border-radius: 50px;
+    color: white;
+    transition: ease-in-out .5s;
+}

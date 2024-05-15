@@ -84,3 +84,30 @@ img {
     color: white;
     transition: ease-in-out .5s;
 }
+
+.para-data {
+    p {
+        text-align: justify;
+        line-height: 36px;
+    }
+}
+
+.service {
+    p {
+        text-align: justify;
+        line-height: 36px;
+    }
+}
+
+.service {
+    div {
+
+        overflow: hidden;
+
+
+        img:hover {
+            transform: scale(1.5);
+            transition: ease-in-out .5s;
+        }
+    }
+}

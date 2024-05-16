@@ -163,8 +163,8 @@ const HomeScreen = () => {
             <Container>
 
                 <h2 className='py-5 text-center'>Featured Products</h2>
-                <Row>
-                    <Col lg={3}>
+                <Row className='g-0'>
+                    <Col lg>
                         <div>
                             <Card className='text-primary'>
                                 <div>
@@ -186,7 +186,7 @@ const HomeScreen = () => {
                         </div>
 
                     </Col>
-                    <Col lg={3}>
+                    <Col lg>
                         <div>
                             <Card className='text-primary'>
                                 <div>
@@ -208,7 +208,7 @@ const HomeScreen = () => {
                         </div>
 
                     </Col>
-                    <Col lg={3}>
+                    <Col lg>
                         <div>
                             <Card className='text-primary'>
                                 <div>
@@ -230,7 +230,29 @@ const HomeScreen = () => {
                         </div>
 
                     </Col>
-                    <Col lg={3}>
+                    <Col lg>
+                        <div>
+                            <Card className='text-primary'>
+                                <div>
+                                    <Card.Img variant="top" src={require("../../images/background2.jpg")} />
+
+                                </div>
+                                <Card.Body>
+                                    <Card.Title>Basic Mask</Card.Title>
+                                    <Card.Text>
+                                        <h2 >
+                                            $1.99
+                                        </h2>
+
+                                    </Card.Text>
+
+                                </Card.Body>
+                            </Card>
+
+                        </div>
+
+                    </Col>
+                    <Col lg>
                         <div>
                             <Card className='text-primary'>
                                 <div>
@@ -340,7 +362,9 @@ const HomeScreen = () => {
                     <Col lg={7}>
                         <div className='map'>
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12090.453705139798!2d-73.985663!3d40.748531!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9ac1f1b85%3A0x7e33d1c0e7af3be4!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118!5e0!3m2!1sen!2sus!4v1715786894859!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className='w-100' ></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12090.453705139798!2d-73.985663!3d40.748531!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9ac1f1b85%3A0x7e33d1c0e7af3be4!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118!5e0!3m2!1sen!2sus!4v1715786894859!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className='w-100' style={{
+                                height: 400
+                            }}></iframe>
                         </div>
                     </Col>
                 </Row>

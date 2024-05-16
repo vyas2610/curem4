@@ -91,7 +91,7 @@ const Layout = () => {
                         <div>Copyright 2025 Mobirise. All Rights Reserved</div>
                     </Col>
                     <Col lg={6} className='ms-auto'>
-                        <div className='d-flex'>
+                        <div className='d-flex justify-content-end gap-1'>
                             <img src={require("../../src/images/master-card.png")} alt="" />
                             <img src={require("../../src/images/union-pay.png")} alt="" />
                             <img src={require("../../src/images/ebay.png")} alt="" />

@@ -9,12 +9,25 @@ import ProductScreen from './screen/productscreen/ProductScreen';
 import ServiceScreen from './screen/servicescreen/ServiceScreen';
 import NewsScreen from './screen/newsscreen/NewsScreen';
 import ContactScreen from './screen/contactscreen/ContactScreen';
+import AdminLayout from './admin/AdminLayout/AdminLayout';
+import DashBoard from './admin/screen/Dashboard/DashBoard';
+import Products from './admin/screen/Products/Products';
+import AddProduct from './admin/screen/Products/AddProducts/AddProduct';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+
+          {/* Admin Routes */}
+
+          <Route path="/admin-panel" element={<AdminLayout />}>
+            <Route element={<DashBoard />} ></Route>
+            <Route path='product' element={<Products></Products>} />
+            <Route path='product/create' element={<AddProduct />} ></Route>
+
+          </Route>
           <Route path="/" element={<Layout></Layout>}>
             <Route path='/' element={<HomeScreen></HomeScreen>}></Route>
             <Route path="about-us" element={<AboutScreen></AboutScreen>}></Route>

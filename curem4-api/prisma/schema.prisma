@@ -22,3 +22,11 @@ model products {
   created_at DateTime @default(now()) @db.Timestamp()
   updated_at DateTime @default(now()) @updatedAt @db.Timestamp()
 }
+
+model services {
+  ser_id     Int      @id @default(autoincrement())
+  ser_name   String
+  ser_desc   String
+  created_at DateTime @default(now()) @db.Timestamp()
+  updated_at DateTime @default(now()) @updatedAt @db.Timestamp()
+}

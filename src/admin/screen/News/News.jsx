@@ -3,12 +3,12 @@ import { FaEdit } from 'react-icons/fa'
 import { FaDeleteLeft } from 'react-icons/fa6'
 import { FcViewDetails } from 'react-icons/fc'
 
-const Products = () => {
+const News = () => {
     return (
         <>
             <div className='px-3 py-3'>
                 <h2>
-                    View Products
+                    View News
 
                 </h2>
                 <table className='table'>
@@ -16,8 +16,7 @@ const Products = () => {
                         <tr>
                             <th>Sr. No</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Rating</th>
+                            <th>Description</th>
                             <th>Update</th>
                             <th>Delete</th>
                             <th>Details</th>
@@ -30,9 +29,8 @@ const Products = () => {
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Product 1</td>
-                            <td>1.9</td>
-                            <td>5</td>
+                            <td>News Title</td>
+                            <td>Description</td>
                             <td><FaEdit /> Edit</td>
                             <td><FaDeleteLeft /> Delete</td>
                             <td><FcViewDetails /> Details</td>
@@ -41,9 +39,8 @@ const Products = () => {
                     </tbody>
                 </table>
             </div>
-
         </>
     )
 }
 
-export default Products
+export default News

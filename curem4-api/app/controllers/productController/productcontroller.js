@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client')
+const { PrismaClient } = require('@prisma/client');
+const { BiRewind } = require('react-icons/bi');
 const prisma = new PrismaClient()
 
 const index = async (req, res) => {
@@ -14,9 +15,17 @@ const index = async (req, res) => {
     }
 }
 const create = async (req, res) => {
+    // const { image } = req.files;
+    //   let data = req.data;
+    // let filename = `/images/products/" + ${image.name}`;
+    // image.mv(__dirname + "/../../../public" + filename)
+
+    // res.send({ ...data, image });
+
+    //    data = { ...data, image: filename }
     try {
         await prisma.products.create({
-            data: req.body,
+            data: req.body
         })
         res.send({
             msg: "Data Added..!"

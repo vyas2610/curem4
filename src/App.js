@@ -13,6 +13,12 @@ import AdminLayout from './admin/AdminLayout/AdminLayout';
 import DashBoard from './admin/screen/Dashboard/DashBoard';
 import Products from './admin/screen/Products/Products';
 import AddProduct from './admin/screen/Products/AddProducts/AddProduct';
+import AddServices from './admin/screen/Services/AddServices/AddServices';
+import Services from './admin/screen/Services/Services';
+import AddNews from './admin/screen/News/AddNews/AddNews';
+import News from './admin/screen/News/News';
+import Information from './admin/screen/Information/Information';
+import ContactDetails from './admin/screen/Contact/ContactDetails';
 
 function App() {
   return (
@@ -26,6 +32,13 @@ function App() {
             <Route element={<DashBoard />} ></Route>
             <Route path='product' element={<Products></Products>} />
             <Route path='product/create' element={<AddProduct />} ></Route>
+            <Route path='services' element={<Services />}></Route>
+            <Route path='services/create' element={<AddServices />}></Route>
+            <Route path='news/create' element={<AddNews />}></Route>
+            <Route path='news' element={<News />}></Route>
+            <Route path='information' element={<Information />}></Route>
+            <Route path='contact-details' element={<ContactDetails />}></Route>
+
 
           </Route>
           <Route path="/" element={<Layout></Layout>}>

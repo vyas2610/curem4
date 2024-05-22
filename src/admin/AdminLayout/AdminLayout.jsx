@@ -28,20 +28,39 @@ const AdminLayout = () => {
                                 </ul>
                             </li>
                             <li>
-                                <Link></Link>
+                                <Link>Services</Link>
+                                <ul>
+                                    <li>
+                                        <Link to='services/create'>Add Services</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='services'>View Services</Link>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <Link></Link>
+                                <Link>News</Link>
+                                <ul>
+                                    <li>
+                                        <Link to='news/create'>Add News</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='news'>View News</Link>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <Link></Link>
+                                <Link to='information'> General Information</Link>
+                            </li>
+
+                            <li>
+                                <Link to='contact-details'> Contact Details</Link>
                             </li>
                         </ul>
                     </div>
                 </aside>
                 <div className='bg-warning flex-grow-1 '>
 
-                    <h1>Admin Panel</h1>
                     <main>
                         <Outlet />
                     </main>

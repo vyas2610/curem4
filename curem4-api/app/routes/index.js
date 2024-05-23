@@ -1,6 +1,7 @@
 const productcontroller = require('../controllers/productController/productcontroller')
 const servicecontroller = require('../controllers/ServiceController/servicecontroller')
 const newscontroller = require('../controllers/NewsController/NewsController')
+const contactController = require('../controllers/ContactController/ContactController')
 const routes = (app) => {
     app.get("/products", productcontroller.index)
     app.post("/products", productcontroller.create)
@@ -21,6 +22,13 @@ const routes = (app) => {
     app.put("/news/:id", newscontroller.update)
     app.get("/news/:id", newscontroller.details)
     app.delete("/news/:id", newscontroller.destroy)
+
+    //contact Routes
+    app.get("/contact", contactController.index)
+    app.post("/contact", contactController.create)
+    app.put("/contact/:id", contactController.update)
+    app.get("/contact/:id", contactController.details)
+    app.delete("/contact/:id", contactController.destroy)
 }
 
 

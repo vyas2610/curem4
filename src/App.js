@@ -32,6 +32,8 @@ function App() {
             <Route element={<DashBoard />} ></Route>
             <Route path='product' element={<Products></Products>} />
             <Route path='product/create' element={<AddProduct />} ></Route>
+            <Route path='product/edit/:id' element={<AddProduct />} ></Route>
+            <Route path='product/delete/:id' element={<Products />} ></Route>
             <Route path='services' element={<Services />}></Route>
             <Route path='services/create' element={<AddServices />}></Route>
             <Route path='news/create' element={<AddNews />}></Route>

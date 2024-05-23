@@ -7,9 +7,7 @@ async function index(req, res) {
 
     try {
         let response = await prisma.services.findMany();
-        res.send({
-            msg: response
-        })
+        res.send(response)
     } catch (error) {
         res.status(500).send({
             error

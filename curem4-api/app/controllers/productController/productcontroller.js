@@ -4,10 +4,8 @@ const prisma = new PrismaClient()
 
 const index = async (req, res) => {
     try {
-        let respose = await prisma.products.findMany();
-        res.send({
-            respose
-        })
+        let response = await prisma.products.findMany();
+        res.send(response)
     } catch (error) {
         res.status(500).send({
             error,
@@ -24,8 +22,11 @@ const create = async (req, res) => {
 
     //    data = { ...data, image: filename }
     try {
+        let data = req.body
+        data.price = parseFloat(data.price)
+        data.rating = parseInt(data.rating);
         await prisma.products.create({
-            data: req.body
+            data
         })
         res.send({
             msg: "Data Added..!"
@@ -63,9 +64,9 @@ const details = async (req, res) => {
                 id: parseInt(req.params.id),
             }
         });
-        res.send({
-            msg: details
-        })
+        res.send(
+            details
+        )
     } catch (error) {
         res.status(500).send({
             error

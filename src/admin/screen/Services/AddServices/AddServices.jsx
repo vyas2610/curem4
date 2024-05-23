@@ -1,6 +1,10 @@
+import { Form, Formik } from 'formik'
 import React from 'react'
+import { ApiExecute } from '../../../../ApiExeService'
+import { useNavigate } from 'react-router-dom';
 
 const AddServices = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className='px-3 py-3'>
@@ -8,26 +12,61 @@ const AddServices = () => {
                 <h2>
                     Add New Service
                 </h2>
-                <form action="" method='post'>
 
-                    <div className='mb-3'>
-                        <label className='form-label'>
-                            Service Name
-                        </label>
-                        <input type='text' className='form-control' placeholder='Enter Product Name' />
-                    </div>
-                    <div className='mb-3'>
-                        <label className='form-label'>
-                            Service Description
-                        </label>
-                        <textarea className='form-control' rows={8} cols={3}></textarea>
-                    </div>
+                <Formik
+                    initialValues={{
+                        ser_name: "Service-3",
+                        ser_desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora ratione perferendis porro dolore quas blanditiis molestiae commodi iure ut velit quasi veritatis est, aperiam eaque deleniti quo et minima inventore. Quae ut asperiores distinctio dignissimos. Libero facilis veniam odit laudantium, iusto nulla possimus, animi ducimus eos aliquid assumenda, modi explicabo. Vitae cum doloremque expedita suscipit ea molestias inventore nam sunt. "
 
-                    <div className='mb-3'>
+                    }}
 
-                        <button className='btn btn-success'> Add Service </button>
-                    </div>
-                </form>
+                    onSubmit={async (values, { setSubmitting }) => {
+                        await ApiExecute("services", "POST", {
+                            data: values
+                        })
+                        navigate("/admin-panel/services")
+                        setSubmitting(false);
+                    }}
+                >
+                    {
+                        ({ values, handleChange,
+                            handleBlur, }) => (
+
+                            <Form>
+
+                                <div className='mb-3'>
+                                    <label className='form-label'>
+                                        Service Name
+                                    </label>
+                                    <input type='text' className='form-control'
+                                        placeholder='Enter Product Name'
+                                        value={values.ser_name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        name='ser_name'
+                                    />
+                                </div>
+                                <div className='mb-3'>
+                                    <label className='form-label'>
+                                        Service Description
+                                    </label>
+                                    <textarea className='form-control' rows={8} cols={3}
+                                        value={values.ser_desc}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        name='ser_desc'
+                                    ></textarea>
+                                </div>
+
+                                <div className='mb-3'>
+
+                                    <button className='btn btn-success'> Add Service </button>
+                                </div>
+                            </Form>
+
+                        )
+                    }
+                </Formik>
 
             </div>
         </>

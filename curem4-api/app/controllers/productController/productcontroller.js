@@ -41,11 +41,15 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
+        let data = req.body
+        data.price = parseFloat(data.price)
+        data.rating = parseInt(data.rating);
+
         await prisma.products.update({
             where: {
                 id: parseInt(req.params.id),
             },
-            data: req.body
+            data
 
         })
         res.send({
@@ -75,6 +79,7 @@ const details = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
+    console.log('params', req.params);
     try {
         await prisma.products.delete({
             where: {

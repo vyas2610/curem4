@@ -1,69 +1,74 @@
-import React, { useEffect, useState } from 'react'
-import { FaEdit } from 'react-icons/fa'
-import { FaDeleteLeft } from 'react-icons/fa6'
-import { FcViewDetails } from 'react-icons/fc'
-import { ApiExecute } from '../../../ApiExeService'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { FcViewDetails } from "react-icons/fc";
+import { ApiExecute } from "../../../ApiExeService";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-    async function fetchProducts() {
-        let response = await ApiExecute('products')
-        console.log('response data: ', response);
-        setProducts(response.data);
-    }
-    useEffect(() => {
-        fetchProducts()
-    }, [])
-    return (
-        <>
-            <div className='px-3 py-3'>
-                <h2>
-                    View Products
+  const handleDelete = async (id) => {
+    await ApiExecute(`products/${id}`, "DELETE");
 
-                </h2>
-                {
-                    //JSON.stringify(products)
-                }
-                <table className='table'>
-                    <thead>
+    fetchProducts();
+  };
+  async function fetchProducts() {
+    let response = await ApiExecute("products");
+    console.log("response data: ", response);
+    setProducts(response.data);
+  }
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  return (
+    <>
+      <div className="px-3 py-3">
+        <h2>View Products</h2>
+        {
+          //JSON.stringify(products)
+        }
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Rating</th>
+              <th>Update</th>
+              <th>Delete</th>
+              <th>Details</th>
+            </tr>
+          </thead>
 
-                        <tr>
-                            <th>Sr. No</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Rating</th>
-                            <th>Update</th>
-                            <th>Delete</th>
-                            <th>Details</th>
+          <tbody>
+            {products.map((pro, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{pro.name}</td>
+                <td>{pro.price}</td>
+                <td>{pro.rating}</td>
+                <td>
+                  <Link to={"edit/" + pro.id} className="btn btn-info">
+                    <FaEdit /> Edit
+                  </Link>
+                </td>
+                <td>
+                  <Button variant="danger" onClick={() => handleDelete(pro.id)}>
+                    <FaDeleteLeft /> Delete
+                  </Button>
+                </td>
+                <td>
+                  <FcViewDetails /> Details
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
 
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        {
-                            products.map((pro, index) => (
-                                <tr key={index}>
-                                    <td>{index + 1}</td>
-                                    <td>{pro.name}</td>
-                                    <td>{pro.price}</td>
-                                    <td>{pro.rating}</td>
-                                    <td><FaEdit /> <Link to={"edit/" + pro.id}> Edit</Link></td>
-                                    <td><FaDeleteLeft /> <Link to={"delete/" + pro.id}>Delete</Link> </td>
-                                    <td><FcViewDetails /> Details</td>
-                                </tr>
-
-                            ))
-                        }
-
-                    </tbody>
-                </table>
-            </div>
-
-        </>
-    )
-}
-
-export default Products
+export default Products;

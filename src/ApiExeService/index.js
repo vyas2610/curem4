@@ -13,7 +13,7 @@ export const ApiExecute = (url, method = 'GET', params = {}) => {
         headers,
     });
 
-    let data = params?.data ?? null;
+    let data = params?.data ?? {};
 
     return instance({
         url,

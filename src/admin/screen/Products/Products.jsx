@@ -11,7 +11,6 @@ const Products = () => {
 
   const handleDelete = async (id) => {
     await ApiExecute(`products/${id}`, "DELETE");
-
     fetchProducts();
   };
   async function fetchProducts() {

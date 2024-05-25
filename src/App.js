@@ -36,6 +36,7 @@ function App() {
             <Route path='product/delete/:id' element={<Products />} ></Route>
             <Route path='services' element={<Services />}></Route>
             <Route path='services/create' element={<AddServices />}></Route>
+            <Route path='services/edit/:id' element={<AddServices />}></Route>
             <Route path='news/create' element={<AddNews />}></Route>
             <Route path='news' element={<News />}></Route>
             <Route path='information' element={<Information />}></Route>

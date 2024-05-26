@@ -45,7 +45,7 @@ const News = () => {
                 <td>{ndata.news_name}</td>
                 <td>{ndata.news_desc}</td>
                 <td>
-                  <FaEdit /> Edit
+                  <Button className="btn btn-success">Edit</Button>
                 </td>
                 <td>
                   <Button
@@ -56,7 +56,7 @@ const News = () => {
                   </Button>
                 </td>
                 <td>
-                  <FcViewDetails /> Details
+                  <Button className="btn btn-primary">Details</Button>
                 </td>
               </tr>
             ))}

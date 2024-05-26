@@ -38,3 +38,13 @@ model news {
   created_at DateTime @default(now()) @db.Timestamp()
   updated_at DateTime @default(now()) @updatedAt @db.Timestamp()
 }
+
+model contact {
+  con_id     Int      @id @default(autoincrement())
+  con_name   String
+  con_email  String
+  con_msg    String
+  con_status Int      @default(0)
+  create_at  DateTime @default(now()) @db.Timestamp()
+  update_at  DateTime @default(now()) @updatedAt @db.Timestamp()
+}

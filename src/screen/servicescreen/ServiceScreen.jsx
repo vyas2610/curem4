@@ -1,55 +1,50 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { ApiExecute } from "../../ApiExeService";
 
 const ServiceScreen = () => {
-    return (
-        <>
-            <div className='bg-primary py-3 text-primary'>
-                <Container>
-                    <div className='text-white'>Home / Services </div>
-                </Container>
-            </div>
-            <Container className='py-2'>
-                <div className='text-primary'>
+  useEffect(() => {
+    fetchService();
+  }, []);
+  const [Service, SetServices] = useState([]);
+  const fetchService = async () => {
+    let response = await ApiExecute("services");
 
-                    <h2 className='text-uppercase text-center'>Our Services</h2>
+    SetServices(response.data);
+  };
+  return (
+    <>
+      <div className="bg-primary py-3 text-primary">
+        <Container>
+          <div className="text-white">Home / Services </div>
+        </Container>
+      </div>
+      <Container className="py-2">
+        <div className="text-primary">
+          <h2 className="text-uppercase text-center">Our Services</h2>
+        </div>
+        <Row className="py-3">
+          {Service.map((ser, index) => (
+            <Col lg={4}>
+              <div className="text-primary service" key={index}>
+                <div>
+                  <img
+                    src={require("../../images/product1.jpg")}
+                    alt=""
+                    className="w-100"
+                  />
                 </div>
+                <h3 className="text-warning text-center text-uppercase">
+                  {ser.ser_name}
+                </h3>
+                <p>{ser.ser_desc}</p>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
+  );
+};
 
-                <Row className='py-3'>
-                    <Col lg={4}>
-                        <div className='text-primary service'>
-                            <div>
-                                <img src={require("../../images/product1.jpg")} alt="" className='w-100' />
-
-                            </div>
-                            <h3 className='text-warning text-center text-uppercase'>service 1</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora ratione perferendis porro dolore quas blanditiis molestiae commodi iure ut velit quasi veritatis est, aperiam eaque deleniti quo et minima inventore. Quae ut asperiores distinctio dignissimos. Libero facilis veniam odit laudantium, iusto nulla possimus, animi ducimus eos aliquid assumenda, modi explicabo. Vitae cum doloremque expedita suscipit ea molestias inventore nam sunt.</p>
-                        </div>
-                    </Col>
-                    <Col lg={4}>
-                        <div className='text-primary service'>
-                            <div>
-                                <img src={require("../../images/product1.jpg")} alt="" className='w-100' />
-
-                            </div>
-                            <h3 className='text-warning text-center text-uppercase'>service 1</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora ratione perferendis porro dolore quas blanditiis molestiae commodi iure ut velit quasi veritatis est, aperiam eaque deleniti quo et minima inventore. Quae ut asperiores distinctio dignissimos. Libero facilis veniam odit laudantium, iusto nulla possimus, animi ducimus eos aliquid assumenda, modi explicabo. Vitae cum doloremque expedita suscipit ea molestias inventore nam sunt.</p>
-                        </div>
-                    </Col>
-                    <Col lg={4}>
-                        <div className='text-primary service'>
-                            <div>
-                                <img src={require("../../images/product1.jpg")} alt="" className='w-100' />
-
-                            </div>
-                            <h3 className='text-warning text-center text-uppercase'>service 1</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora ratione perferendis porro dolore quas blanditiis molestiae commodi iure ut velit quasi veritatis est, aperiam eaque deleniti quo et minima inventore. Quae ut asperiores distinctio dignissimos. Libero facilis veniam odit laudantium, iusto nulla possimus, animi ducimus eos aliquid assumenda, modi explicabo. Vitae cum doloremque expedita suscipit ea molestias inventore nam sunt.</p>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    )
-}
-
-export default ServiceScreen
+export default ServiceScreen;

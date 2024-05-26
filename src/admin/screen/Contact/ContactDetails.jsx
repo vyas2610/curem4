@@ -4,6 +4,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { FcViewDetails } from "react-icons/fc";
 import { ApiExecute } from "../../../ApiExeService";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ContactDetails = () => {
   const DeleteMsg = async (id) => {
@@ -51,7 +52,11 @@ const ContactDetails = () => {
                   </Button>
                 </td>
                 <td>
-                  <Button className="btn btn-primary">
+                  <Button
+                    className="btn btn-primary"
+                    as={Link}
+                    to={`details/${msg.con_id}`}
+                  >
                     <FcViewDetails /> Details
                   </Button>
                 </td>

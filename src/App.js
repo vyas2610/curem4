@@ -19,6 +19,8 @@ import AddNews from './admin/screen/News/AddNews/AddNews';
 import News from './admin/screen/News/News';
 import Information from './admin/screen/Information/Information';
 import ContactDetails from './admin/screen/Contact/ContactDetails';
+import Details from './admin/screen/Contact/Details';
+import NewsDetails from './admin/screen/News/Details';
 
 function App() {
   return (
@@ -39,8 +41,10 @@ function App() {
             <Route path='services/edit/:id' element={<AddServices />}></Route>
             <Route path='news/create' element={<AddNews />}></Route>
             <Route path='news' element={<News />}></Route>
+            <Route path='news/details/:id' element={<NewsDetails />}></Route>
             <Route path='information' element={<Information />}></Route>
             <Route path='contact-details' element={<ContactDetails />}></Route>
+            <Route path='contact-details/details/:id' element={<Details />}></Route>
 
 
           </Route>

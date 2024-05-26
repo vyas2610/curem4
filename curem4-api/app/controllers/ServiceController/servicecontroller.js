@@ -62,9 +62,9 @@ async function details(req, res) {
                 ser_id: parseInt(req.params.id)
             }
         })
-        res.send({
+        res.send(
             response
-        })
+        )
     } catch (error) {
         res.status(500).send({
             error

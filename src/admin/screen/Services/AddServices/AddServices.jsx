@@ -11,6 +11,8 @@ const AddServices = () => {
     try {
       let data = await ApiExecute(`services/${id}`);
       let { ser_name, ser_desc } = data;
+      console.log(data);
+
       formikRef.current.setFieldValue("ser_name", ser_name);
       formikRef.current.setFieldValue("ser_desc", ser_desc);
     } catch (error) {}

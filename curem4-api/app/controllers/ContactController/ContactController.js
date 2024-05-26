@@ -48,7 +48,7 @@ const details = async (req, res) => {
     try {
        let details =  await prisma.contact.findFirst({
             where:{
-                con_id: parseInt(req.params.id)
+                con_id: parseInt(req.params.id),
             }
             
         })

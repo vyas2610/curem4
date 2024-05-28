@@ -9,9 +9,11 @@ const AddServices = () => {
   const formikRef = useRef(null);
   const fetchServiceId = async () => {
     try {
-      let data = await ApiExecute(`services/${id}`);
-      let { ser_name, ser_desc } = data;
-      console.log(data);
+      let {
+        data: { ser_name, ser_desc },
+      } = await ApiExecute(`services/${id}`);
+      // let { ser_name, ser_desc } = data.data;
+      // console.log(data);
 
       formikRef.current.setFieldValue("ser_name", ser_name);
       formikRef.current.setFieldValue("ser_desc", ser_desc);

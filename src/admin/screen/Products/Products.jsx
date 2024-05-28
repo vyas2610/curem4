@@ -35,6 +35,7 @@ const Products = () => {
               <th>Name</th>
               <th>Price</th>
               <th>Rating</th>
+              <th>Image</th>
               <th>Update</th>
               <th>Delete</th>
               <th>Details</th>
@@ -48,6 +49,9 @@ const Products = () => {
                 <td>{pro.name}</td>
                 <td>{pro.price}</td>
                 <td>{pro.rating}</td>
+                <td>
+                  <img src={pro.image} alt="" />
+                </td>
                 <td>
                   <Link to={"edit/" + pro.id} className="btn btn-info">
                     <FaEdit /> Edit
